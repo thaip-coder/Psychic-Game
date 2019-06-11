@@ -1,12 +1,13 @@
 //Letters that can be guessed
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-//Animal word bank
-var animalBank = ["Horse", "Eagle", "Giraffe", "Elephant", "Tiger", "Snake", "Crow", "Monkey", "Panther", "Armadillo"];
+//Starting values
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
+var usedLetters = [];
+var repeatLetters = null;
 
-//User Guess
-
-
-//Computer chooses random animal from animalBank array
-var compChoice = compChoice[Math.floor(Math.random() * compChoice.length)];
+//Computer chooses random letter.
+var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 
