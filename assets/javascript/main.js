@@ -4,9 +4,8 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 //Default variables
 var wins = 0;
 var losses = 0;
-var guessesLeft = 9;
+var guessesLeft = 10;
 var usedLetters = [];
-var repeatLetters = null;
 
 //Computer chooses random letter.
 var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -23,7 +22,7 @@ function guessHistory() {
 
 //Restarts the game with a new computer generated letter guess after a win or loss
 var restart = function() {
-    guessesLeft = 9;
+    guessesLeft = 10;
     usedLetters = [];
     randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; 
 };
@@ -41,7 +40,7 @@ document.onkeydown = function(event) {
 
                 if (userGuess === randomLetter) {
                     wins++;
-                    guessesLeft = 9;
+                    guessesLeft = 10;
                     document.querySelector("#wins").innerHTML = "Wins: " + wins;
                     restart();
                 }else {
@@ -49,7 +48,7 @@ document.onkeydown = function(event) {
                 }
                 if (guessesLeft === 0) {
                     losses++; 
-                    guessesLeft = 9;
+                    guessesLeft = 10;
                     document.querySelector("#losses").innerHTML = "Losses: " + losses;
                     restart();
                 };
