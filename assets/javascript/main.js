@@ -25,7 +25,7 @@ function guessHistory() {
 var restart = function() {
     guessesLeft = 9;
     usedLetters = [];
-    randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; //Not choosing a random letter !!
+    randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; 
 };
 
 //When a key is pushed down
@@ -36,23 +36,23 @@ document.onkeydown = function(event) {
 
         //Pushes letter pressed to the usedLetters array
         usedLetters.push(userGuess);
-        guessCounter();
-        guessHistory();
+            guessCounter();
+            guessHistory();
 
-            if (userGuess === randomLetter) {
-                wins++;
-                guessesLeft = 9;
-                document.querySelector("#wins").innerHTML = "Wins: " + wins;
-                restart();
-            }else {
-                guessesLeft--;
-            }
-            if (guessesLeft === 0) {
-                losses++; //Not logging Losses !!
-                guessesLeft = 9;
-                document.querySelector("#losses").innerHTML = "Losses: " + losses;
-                restart();
-            };
+                if (userGuess === randomLetter) {
+                    wins++;
+                    guessesLeft = 9;
+                    document.querySelector("#wins").innerHTML = "Wins: " + wins;
+                    restart();
+                }else {
+                    guessesLeft--;
+                }
+                if (guessesLeft === 0) {
+                    losses++; 
+                    guessesLeft = 9;
+                    document.querySelector("#losses").innerHTML = "Losses: " + losses;
+                    restart();
+                };
     
 };
 
