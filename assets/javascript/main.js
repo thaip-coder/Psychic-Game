@@ -25,7 +25,7 @@ function guessHistory() {
 var restart = function() {
     guessesLeft = 9;
     usedLetters = [];
-    var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; //Not choosing a random letter !!
+    randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; //Not choosing a random letter !!
 };
 
 //When a key is pushed down
