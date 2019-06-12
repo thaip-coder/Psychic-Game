@@ -27,6 +27,7 @@ var restart = function() {
     randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; 
 };
 
+
 //When a key is pushed down
 document.onkeydown = function(event) {
 
@@ -35,12 +36,16 @@ document.onkeydown = function(event) {
 
         //Pushes letter pressed to the usedLetters array
         usedLetters.push(userGuess);
+
+            //Displays guess counter
             guessCounter();
+
+            //Logs letter into history of guessed letters
             guessHistory();
 
                 if (userGuess === randomLetter) {
                     wins++;
-                    guessesLeft = 10;
+                    guessesLeft = 9;
                     document.querySelector("#wins").innerHTML = "Wins: " + wins;
                     restart();
                 }else {
@@ -48,7 +53,7 @@ document.onkeydown = function(event) {
                 }
                 if (guessesLeft === 0) {
                     losses++; 
-                    guessesLeft = 10;
+                    guessesLeft = 9;
                     document.querySelector("#losses").innerHTML = "Losses: " + losses;
                     restart();
                 };
