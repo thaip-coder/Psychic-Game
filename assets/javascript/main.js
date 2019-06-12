@@ -14,42 +14,49 @@ var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 //Displays the number of guesses remaining 
 function guessCounter() {
 	document.querySelector("#guessesLeft").innerHTML = "Remaining Guesses: " + guessesLeft;
-}
+};
 
 //Displays letters that have been guessed
 function guessHistory() {
-	document.querySelector("#history").innerHTML = "History: " + usedLetters.join(' ');
-}
+	document.querySelector("#history").innerHTML = "History: " + usedLetters.join(', ');
+};
 
 //Restarts the game with a new computer generated letter guess after a win or loss
 var restart = function() {
     guessesLeft = 9;
     usedLetters = [];
-    var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-}
+    var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; //Not choosing a random letter !!
+};
 
 //When a key is pushed down
 document.onkeydown = function(event) {
-    guessesLeft--;
 
     //Determines which key is pressed
     var userGuess = event.key;
 
-    usedLetters.push(userGuess);
-    guessCounter();
-	guessHistory();
-    
-    if (userGuess === randomLetter) {
-        wins++;
-        document.querySelector("#wins").innerHTML = "Wins: " + wins;
-        restart();
-    }else if (guessesLeft === 0) {
-        losses++;
-        document.querySelector("#losses").innerHTML = "Losses: " + losses;
-        restart();
-    }
+        //Pushes letter pressed to the usedLetters array
+        usedLetters.push(userGuess);
+        guessCounter();
+        guessHistory();
 
+            if (userGuess === randomLetter) {
+                wins++;
+                guessesLeft = 9;
+                document.querySelector("#wins").innerHTML = "Wins: " + wins;
+                restart();
+            }else {
+                guessesLeft--;
+            }
+            if (guessesLeft === 0) {
+                losses++; //Not logging Losses !!
+                guessesLeft = 9;
+                document.querySelector("#losses").innerHTML = "Losses: " + losses;
+                restart();
+            };
+    
 };
+
+
 
 
 
