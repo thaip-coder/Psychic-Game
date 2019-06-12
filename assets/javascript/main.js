@@ -12,7 +12,7 @@ var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 
 //Displays the number of guesses remaining 
 function guessCounter() {
-	document.querySelector("#guessesLeft").innerHTML = "Remaining Guesses: " + guessesLeft;
+	document.querySelector("#guessesLeft").innerHTML = "Remaining Guesses: " + (guessesLeft - 1);
 };
 
 //Displays letters that have been guessed
@@ -45,15 +45,13 @@ document.onkeydown = function(event) {
 
                 if (userGuess === randomLetter) {
                     wins++;
-                    guessesLeft = 9;
                     document.querySelector("#wins").innerHTML = "Wins: " + wins;
                     restart();
                 }else {
                     guessesLeft--;
                 }
                 if (guessesLeft === 0) {
-                    losses++; 
-                    guessesLeft = 9;
+                    losses++;
                     document.querySelector("#losses").innerHTML = "Losses: " + losses;
                     restart();
                 };
