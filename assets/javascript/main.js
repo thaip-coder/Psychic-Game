@@ -17,7 +17,7 @@ function guessCounter() {
 
 //Displays letters that have been guessed
 function guessHistory() {
-	document.querySelector("#history").innerHTML = "History: " + usedLetters.join(', ');
+	document.querySelector("#history").innerHTML = "History: " + usedLetters.join(' , ');
 };
 
 //Restarts the game with a new computer generated letter guess after a win or loss
@@ -26,7 +26,6 @@ var restart = function() {
     usedLetters = [];
     randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; 
 };
-
 
 //When a key is pushed down
 document.onkeydown = function(event) {
@@ -43,18 +42,24 @@ document.onkeydown = function(event) {
             //Logs letter into history of guessed letters
             guessHistory();
 
-                if (userGuess === randomLetter) {
+                if (usedLetters.includes(userGuess) = true) {
+                    alert("You've already guessed this letter!");
+                    break;
+                }else if (userGuess === randomLetter) {
                     wins++;
                     document.querySelector("#wins").innerHTML = "Wins: " + wins;
                     restart();
                 }else {
                     guessesLeft--;
-                }
+                };
+
                 if (guessesLeft === 0) {
                     losses++;
                     document.querySelector("#losses").innerHTML = "Losses: " + losses;
                     restart();
                 };
+
+                
     
 };
 
