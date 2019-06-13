@@ -15,6 +15,11 @@ function guessCounter() {
 	document.querySelector("#guessesLeft").innerHTML = "Remaining Guesses: " + (guessesLeft - 1);
 };
 
+//Refresh guess counter for continuous play
+function guessCc() {
+	document.querySelector("#guessesLeft").innerHTML = "Remaining Guesses: " + (guessesLeft);
+};
+
 //Displays letters that have been guessed
 function guessHistory() {
 	document.querySelector("#history").innerHTML = "History: " + usedLetters.join(' , ');
@@ -27,7 +32,7 @@ var restart = function() {
     randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]; 
 };
 
-//When a key is pushed down
+//When a key is pushed down initiate event function
 document.onkeydown = function(event) {
 
     //Determines which key is pressed
@@ -54,6 +59,8 @@ document.onkeydown = function(event) {
             wins++;
             document.querySelector("#wins").innerHTML = "Wins: " + wins;
             restart();
+            guessCc();
+            guessHistory();
         }else {
             guessesLeft--;
         };
@@ -62,6 +69,8 @@ document.onkeydown = function(event) {
             losses++;
             document.querySelector("#losses").innerHTML = "Losses: " + losses;
             restart();
+            guessCc();
+            guessHistory();
         };
 
                 
