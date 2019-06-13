@@ -33,31 +33,36 @@ document.onkeydown = function(event) {
     //Determines which key is pressed
     var userGuess = event.key;
 
+        //Prevents repeating of letter
+        if (usedLetters.includes(userGuess)) {
+            alert("You've already guessed this letter!");
+            if (true) {
+                return;
+            };
+        };
+
         //Pushes letter pressed to the usedLetters array
         usedLetters.push(userGuess);
 
-            //Displays guess counter
-            guessCounter();
+        //Displays guess counter
+        guessCounter();
 
-            //Logs letter into history of guessed letters
-            guessHistory();
+        //Logs letter into history of guessed letters
+        guessHistory();
 
-                if (usedLetters.includes(userGuess) = true) {
-                    alert("You've already guessed this letter!");
-                    break;
-                }else if (userGuess === randomLetter) {
-                    wins++;
-                    document.querySelector("#wins").innerHTML = "Wins: " + wins;
-                    restart();
-                }else {
-                    guessesLeft--;
-                };
+        if (userGuess === randomLetter) {
+            wins++;
+            document.querySelector("#wins").innerHTML = "Wins: " + wins;
+            restart();
+        }else {
+            guessesLeft--;
+        };
 
-                if (guessesLeft === 0) {
-                    losses++;
-                    document.querySelector("#losses").innerHTML = "Losses: " + losses;
-                    restart();
-                };
+        if (guessesLeft === 0) {
+            losses++;
+            document.querySelector("#losses").innerHTML = "Losses: " + losses;
+            restart();
+        };
 
                 
     
